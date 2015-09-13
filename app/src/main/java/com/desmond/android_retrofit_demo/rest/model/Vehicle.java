@@ -10,12 +10,12 @@ public class Vehicle {
     private int cmUsedcarId;
     private VehTypeEnum type;
     private String price;
-//    private DateFormat registrationDate;
+    private String registrationDate;
     private String monthly;
     private String depreciation;
-//    private DateFormat created;
+    private String created;
     private boolean isPremium;
-//    private DateFormat premiumExpiry;
+    private String premiumExpiry;
 
     /* Setter */
     public void setCdUsedcarId(final int cdUsedcarId) {
@@ -34,9 +34,9 @@ public class Vehicle {
         this.price = price;
     }
 
-//    public void setRegistrationDate(final DateFormat registrationDate) {
-//        this.registrationDate = registrationDate;
-//    }
+    public void setRegistrationDate(final String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 
     public void setMonthly(final String monthly) {
         this.monthly = monthly;
@@ -46,29 +46,29 @@ public class Vehicle {
         this.depreciation = depreciation;
     }
 
-//    public void setCreated(final DateFormat created) {
-//        this.created = created;
-//    }
+    public void setCreated(final String created) {
+        this.created = created;
+    }
 
     public void setPremium(final boolean isPremium) {
         this.isPremium = isPremium;
     }
 
-//    public void setPremiumExpiry(final DateFormat premiumExpiry) {
-//        this.premiumExpiry = premiumExpiry;
-//    }
+    public void setPremiumExpiry(final String premiumExpiry) {
+        this.premiumExpiry = premiumExpiry;
+    }
 
     /* Getter */
     public int getCdUsedcarId() { return this.cdUsedcarId; }
     public int getCmUsedcarId() { return this.cmUsedcarId; }
     public VehTypeEnum getType() { return this.type; }
     public String getPrice() { return this.price; }
-//    public DateFormat getRegistrationDate() { return this.registrationDate; }
+    public String getRegistrationDate() { return this.registrationDate; }
     public String getMonthly() { return this.monthly; }
     public String getDepreciation() { return this.depreciation; }
-//    public DateFormat getCreated() { return this.created; }
+    public String getCreated() { return this.created; }
     public boolean isPremium() { return this.isPremium; }
-//    public DateFormat getPremiumExpiry() { return this.premiumExpiry; }
+    public String getPremiumExpiry() { return this.premiumExpiry; }
 
     public String toJsonString() {
         return GsonUtils.getGson().toJson(this, Vehicle.class);

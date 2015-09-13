@@ -2,6 +2,7 @@ package com.desmond.android_retrofit_demo.rest.utils.gson;
 
 import com.desmond.android_retrofit_demo.rest.model.Vehicle;
 import com.desmond.android_retrofit_demo.rest.model.VehicleList;
+import com.desmond.android_retrofit_demo.rest.utils.DateTimeUtility;
 import com.desmond.android_retrofit_demo.rest.utils.GsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -17,9 +18,9 @@ import java.util.List;
 /**
  * Created by desmond on 13/9/15.
  */
-public class VehicleDeserializer implements JsonDeserializer<VehicleList> {
+public class VehicleListDeserializer implements JsonDeserializer<VehicleList> {
 
-    public static final String TAG = VehicleDeserializer.class.getSimpleName();
+    public static final String TAG = VehicleListDeserializer.class.getSimpleName();
 
     @Override
     public VehicleList deserialize(JsonElement json, Type typeOfT,
@@ -28,8 +29,13 @@ public class VehicleDeserializer implements JsonDeserializer<VehicleList> {
         JsonArray array = json.getAsJsonObject().getAsJsonArray("results");
         final Gson gson = GsonUtils.getGson();
 
+        Vehicle vehicle;
         for (JsonElement jsonElement : array) {
-            list.add(gson.fromJson(jsonElement, Vehicle.class));
+            vehicle = gson.fromJson(jsonElement, Vehicle.class);
+            vehicle.setRegistrationDate(DateTimeUtility.convertDate(vehicle.getRegistrationDate()));
+            vehicle.setPremiumExpiry(DateTimeUtility.convertDate(vehicle.getPremiumExpiry()));
+            vehicle.setCreated(DateTimeUtility.convertDate(vehicle.getCreated()));
+            list.add(vehicle);
         }
 
         VehicleList vehicleList = new VehicleList();

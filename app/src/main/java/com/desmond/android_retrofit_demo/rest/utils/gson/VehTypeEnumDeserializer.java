@@ -1,7 +1,5 @@
 package com.desmond.android_retrofit_demo.rest.utils.gson;
 
-import android.util.Log;
-
 import com.desmond.android_retrofit_demo.rest.model.VehTypeEnum;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -22,7 +20,6 @@ public class VehTypeEnumDeserializer implements JsonDeserializer<VehTypeEnum> {
                                    JsonDeserializationContext context) throws JsonParseException {
         try {
             final String type = json.getAsString();
-            Log.d(TAG, type);
             return VehTypeEnum.getByString(type);
         } catch (final ClassCastException e) {
             throw new JsonParseException("Unparseable VehTypeEnum: " + json.getAsString()
