@@ -11,7 +11,9 @@ import java.lang.reflect.Type;
 /**
  * Created by desmond on 13/9/15.
  */
-public class VehicleStateEnumDeserializer implements JsonDeserializer<VehStatusEnum> {
+public class VehStateEnumDeserializer implements JsonDeserializer<VehStatusEnum> {
+
+    public static final String TAG = VehStateEnumDeserializer.class.getSimpleName();
 
     @Override
     public VehStatusEnum deserialize(final JsonElement json, final Type typeOfT,

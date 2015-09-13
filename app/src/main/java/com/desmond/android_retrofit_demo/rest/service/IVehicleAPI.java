@@ -1,6 +1,6 @@
 package com.desmond.android_retrofit_demo.rest.service;
 
-import com.desmond.android_retrofit_demo.rest.model.Vehicle;
+import com.desmond.android_retrofit_demo.rest.model.VehicleList;
 
 import retrofit.Call;
 import retrofit.http.GET;
@@ -12,5 +12,5 @@ import retrofit.http.Query;
 public interface IVehicleAPI {
 
     @GET("usedcar/combined")
-    Call<Vehicle> getUsedVehicle(@Query("offset") int offset, @Query("limit") int limit, @Query("type") String type);
+    Call<VehicleList> getUsedVehicle(@Query("offset") int offset, @Query("limit") int limit, @Query("type") String type);
 }
