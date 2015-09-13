@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.desmond.android_retrofit_demo.rest.model.Vehicle;
 import com.desmond.android_retrofit_demo.rest.service.IVehicleAPI;
+import com.desmond.android_retrofit_demo.rest.utils.GsonUtils;
 
 import java.io.IOException;
 
